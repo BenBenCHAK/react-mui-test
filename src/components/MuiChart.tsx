@@ -1,7 +1,9 @@
 import { Line } from "react-chartjs-2";
-import { FC, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement } from 'chart.js'
+import Card from "@mui/material/Card";
+import { Box } from "@mui/material";
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement)
 
@@ -21,7 +23,7 @@ export function MuiChart(props: { isRunning: boolean }) {
             }, 1000)
         }
         return () => clearInterval(interval)
-    }, [props.isRunning, time])
+    }, [props.isRunning, time, labels, values])
 
     const data = {
         labels: labels, //['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
@@ -52,7 +54,9 @@ export function MuiChart(props: { isRunning: boolean }) {
         }
     }
 
-    return (<>
-        <Line data={data} options={options} />
-    </>)
+    return (<Box width={'300px'}>
+        <Card variant="outlined">
+            <Line data={data} options={options} />
+        </Card>
+    </Box>)
 }
