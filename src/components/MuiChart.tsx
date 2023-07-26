@@ -2,8 +2,7 @@ import { Line } from "react-chartjs-2";
 import { useEffect, useState } from 'react'
 
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement } from 'chart.js'
-import Card from "@mui/material/Card";
-import { Box } from "@mui/material";
+import { Card, Box } from "@mui/material";
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement)
 
@@ -54,7 +53,7 @@ export function MuiChart(props: { isRunning: boolean }) {
         }
     }
 
-    return (<Box width={'300px'}>
+    return (<Box width={'30rem'}>
         <Card variant="outlined">
             <Line data={data} options={options} />
         </Card>
